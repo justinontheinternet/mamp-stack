@@ -32,19 +32,22 @@
   <title>Databases</title>
 </head>
 <body>
-
-  <?php
-    // 3. Use return data (if any)
-      // fetching row increments array pointer for us
-      // can't use foreach() because $result is not a php object, it is a mysql result set
-      // saying "while you can still assign something to $row, dump $row, otherwise exit"
-    while ($row = mysqli_fetch_row($result)) {
-      // output data from each row
-      var_dump($row);
-      echo "<hr />";
-    }
-  ?>
-
+  <ul>
+    <?php
+      // 3. Use return data (if any)
+        // fetching subject increments array pointer for us
+        // can't use foreach() because $result is not a php object, it is a mysql result set
+        // saying "while you can still assign something to $subject, dump $subject, otherwise exit"
+          // mysqli_fetch_array($result, MYSQL_ASSOC) does same as below
+      while ($subject = mysqli_fetch_assoc($result)) {
+        // output data from each subject
+    ?>
+    <li><?php echo $subject['menu_name']; ?></li>
+        
+    <?php
+      }
+    ?>
+  </ul>
   <?php
     // 4. Release returned data to free memory
     mysqli_free_result($result);
