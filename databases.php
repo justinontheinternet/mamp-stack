@@ -42,7 +42,7 @@
       while ($subject = mysqli_fetch_assoc($result)) {
         // output data from each subject
     ?>
-    <li><?php echo $subject['menu_name']; ?></li>
+    <li><?php echo $subject['menu_name'] . " (" . $subject['id'] . ")"; ?></li>
         
     <?php
       }
